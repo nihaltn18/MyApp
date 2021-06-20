@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <!--    <string name="default_web_client_id">273382957874-dtb12fupe5hkqp5ntub309dngict1009.apps.googleusercontent.com</string>-->
+    <string name="phone">phone number</string>
+    <string name="sendotp">SEND OTP</string>
+    <string name="resendotp">RE-SEND OTP</string>
+    <string name="otp">OTP</string>
+    <string name="verify">VERIFY</string>
+    <string name="signout">SIGN OUT</string>
+    <string name="unlink">UNLINK</string>
+    <string name="name">NAME</string>
+    <string name="email">EMAIL</string>
+    <string name="phoneno">PHONE NUMBER</string>
+    <string name="message">ENTER YOUR MESSAGE HERE</string>
+    <string name="submit">SUBMIT</string>
+    <array name="privacy">
+        <item>PRIVATE</item>
+        <item>PUBLIC</item>
+    </array>
+    <array name="anonymousy">
+        <item>ANONYMOUS</item>
+        <item>NON-ANONYMOUS</item>
+    </array>
+    <string name="mYthings">MY MESSAGES</string>
+    <string name="global">GLOBAL</string>
+</resources>
