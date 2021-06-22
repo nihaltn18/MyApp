@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#b3aefa"
     tools:context=".homepage">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -25,7 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/button_bg"
+        android:padding="3dp"
         android:text="@string/mYthings"
+        android:textColor="#8600ff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -35,7 +39,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
+        android:background="@drawable/button_bg"
+        android:padding="3dp"
         android:text="@string/global"
+        android:textColor="#8600ff"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent" />
 

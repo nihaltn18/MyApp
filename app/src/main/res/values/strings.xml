@@ -23,4 +23,6 @@
     </array>
     <string name="mYthings">MY MESSAGES</string>
     <string name="global">GLOBAL</string>
+    <string name="app_label">myApp</string>
+    <string name="search_hint">search</string>
 </resources>
