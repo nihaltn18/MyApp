@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,7 +34,7 @@ public class messageAdapter extends RecyclerView.Adapter<messageAdapter.ViewHold
     public void onBindViewHolder(@NonNull messageAdapter.ViewHolder holder, int position) {
         message message1 = list.get(position);
             if (message1.isAnonymous())
-                decs = "FROM --> ANONYMOUS";
+                decs = "FROM --> ANONYMOUS ";
             else
                 decs = "FROM --> " + message1.getFrom_name();
             decs = decs+" to --> "+message1.getTo_name();
@@ -58,7 +59,7 @@ public class messageAdapter extends RecyclerView.Adapter<messageAdapter.ViewHold
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(context,detailed_message.class);
-            intent.putExtra("details",decs);
+            intent.putExtra("details",details.getText().toString());
             intent.putExtra("msg",list.get(this.getAbsoluteAdapterPosition()).getMessage());
             context.startActivity(intent);
         }
