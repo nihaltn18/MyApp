@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -115,7 +116,18 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             //user created.......
+            if(user.getEmail().contains("bmsce.ac.in"))
             startActivity(new Intent(MainActivity.this,phone_verifiation.class));
+            else
+            {
+                Toast.makeText(MainActivity.this, "please use college Email id......",
+                        Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                GoogleSignIn.getClient(
+                        MainActivity.this,
+                        new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()
+                ).signOut();
+            }
         }
     }
 }

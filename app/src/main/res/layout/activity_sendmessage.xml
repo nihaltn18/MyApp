@@ -37,6 +37,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/spinnerbg"
         android:entries="@array/privacy"
+        android:popupBackground="@drawable/spinnerbg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
@@ -48,6 +49,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/spinnerbg"
         android:entries="@array/anonymousy"
+        android:popupBackground="@drawable/spinnerbg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/privacy" />
