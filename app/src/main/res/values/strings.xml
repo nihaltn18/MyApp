@@ -25,4 +25,6 @@
     <string name="global">GLOBAL</string>
     <string name="app_label">myApp</string>
     <string name="search_hint">search</string>
+    <string name="introstring">Exclusively for BMS......</string>
+
 </resources>
