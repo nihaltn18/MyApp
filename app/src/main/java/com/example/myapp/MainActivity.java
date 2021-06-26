@@ -22,6 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.skyfishjy.library.RippleBackground;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+        final RippleBackground rippleBackground=(RippleBackground)findViewById(R.id.content);
+        rippleBackground.startRippleAnimation();
         if (mAuth.getCurrentUser()!=null)
             updateUI(mAuth.getCurrentUser());
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

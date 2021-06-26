@@ -101,12 +101,15 @@ public class phone_verifiation extends AppCompatActivity {
         sendotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(phno.getText().toString()!="")
+                number = phno.getText().toString();
+                Log.w("phno","lol"+number+"lol");
+                if(number.length()==10)
                 {
-                    number = phno.getText().toString();
                     sendOtp("+91"+number);
                     reotp.setVisibility(View.VISIBLE);
                 }
+                else
+                    Toast.makeText(phone_verifiation.this,"please enter a valid mobile number",Toast.LENGTH_LONG).show();
             }
         });
         reotp.setOnClickListener(new View.OnClickListener() {

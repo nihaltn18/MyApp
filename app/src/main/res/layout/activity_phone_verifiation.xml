@@ -4,7 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00f5d4"
     tools:context=".phone_verifiation">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation" />
 
     <EditText
         android:id="@+id/phonenumber"
@@ -13,15 +28,21 @@
         android:ems="10"
         android:hint="@string/phone"
         android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/sendotp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/button_bg"
         android:text="@string/sendotp"
+        app:backgroundTint="#f15bb5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phonenumber" />
@@ -30,7 +51,10 @@
         android:id="@+id/reotp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/button_bg"
         android:text="@string/resendotp"
+        app:backgroundTint="#fee440"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sendotp" />
@@ -39,18 +63,23 @@
         android:id="@+id/otp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
         android:ems="10"
         android:hint="@string/otp"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reotp" />
+        app:layout_constraintTop_toBottomOf="@+id/phonenumber" />
 
     <Button
         android:id="@+id/verify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@drawable/button_bg"
         android:text="@string/verify"
+        app:backgroundTint="#00bbf9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/otp" />
