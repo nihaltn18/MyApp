@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyApp</string>
+    <string name="app_name">Say It</string>
     <!--    <string name="default_web_client_id">273382957874-dtb12fupe5hkqp5ntub309dngict1009.apps.googleusercontent.com</string>-->
     <string name="phone">phone number</string>
     <string name="sendotp">SEND OTP</string>
@@ -23,8 +23,8 @@
     </array>
     <string name="mYthings">MY MESSAGES</string>
     <string name="global">GLOBAL</string>
-    <string name="app_label">myApp</string>
+    <string name="app_label">Say It</string>
     <string name="search_hint">search</string>
-    <string name="introstring">Exclusively for BMS......</string>
+    <string name="introstring">Exclusively for BMSCE......</string>
 
 </resources>
