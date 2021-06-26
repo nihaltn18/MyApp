@@ -109,9 +109,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> implements
         {
             int pos = this.getAbsoluteAdapterPosition();
             userPerson person = list.get(pos);
-            final Intent intent= new Intent(ContactsContract.Intents.SHOW_OR_CREATE_CONTACT, Uri.parse("tel:"+person.getPhone_number()));
-            intent.putExtra(ContactsContract.Intents.EXTRA_FORCE_CREATE,true);
-            context.startActivity(intent);
+//            final Intent intent= new Intent(ContactsContract.Intents.SHOW_OR_CREATE_CONTACT, Uri.parse("tel:"+person.getPhone_number()));
+//            intent.putExtra(ContactsContract.Intents.EXTRA_FORCE_CREATE,true);
+//            context.startActivity(intent);
+            Uri uri = Uri.parse("smsto:" + person.getPhone_number().substring(3,13));
+            Intent i = new Intent(Intent.ACTION_SENDTO, uri);
+            i.putExtra("sms_body", "hey....wassup?");
+            i.setPackage("com.whatsapp");
+            context.startActivity(i);
         }
         @Override
         public void onClick(View v) {

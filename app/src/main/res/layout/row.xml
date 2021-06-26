@@ -21,7 +21,7 @@
             android:layout_weight="2"
             android:fontFamily="cursive"
             android:text="@string/name"
-            android:textColor="#4ecdc4"
+            android:textColor="#3d405b"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:text="@string/phoneno"
-            android:textColor="#E5FF00"
+            android:textColor="#e07a5f"
             android:textSize="15sp" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_weight="1"
             android:fontFamily="monospace"
             android:text="@string/email"
-            android:textColor="#e63946"
+            android:textColor="#3d405b"
             android:textSize="12sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
