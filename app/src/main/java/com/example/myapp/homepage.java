@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import java.util.List;
 
 public class homepage extends AppCompatActivity {
     RecyclerView recyclerView;
+    SwipeRefreshLayout swipeRefreshLayout2;
     LinearLayoutManager linearLayoutManager;
     List<userPerson> list;
     Adapter adapter;
@@ -57,6 +59,14 @@ public class homepage extends AppCompatActivity {
 //                startActivity(new Intent(homepage.this,MainActivity.class));
 //            }
 //        });
+        swipeRefreshLayout2 = findViewById(R.id.homepageswipe);
+        swipeRefreshLayout2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.notifyDataSetChanged();
+                swipeRefreshLayout2.setRefreshing(false);
+            }
+        });
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("UsersList");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -103,4 +113,5 @@ public class homepage extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+
 }
