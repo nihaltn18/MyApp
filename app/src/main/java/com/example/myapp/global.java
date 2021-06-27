@@ -29,7 +29,7 @@ public class global extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_global);
         recyclerView = findViewById(R.id.recycler2);
-        list =new  ArrayList<>();
+        list =new ArrayList<>();
         linearLayoutManager = new LinearLayoutManager(global.this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -37,6 +37,7 @@ public class global extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for(DataSnapshot message2 :snapshot.getChildren())
                 {
                     message message1 = message2.getValue(message.class);

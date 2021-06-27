@@ -70,8 +70,10 @@ public class message {
         String messageId;
         this.anonymous = anonymous;
         likedList = new ArrayList<>();
+        likedList.add("one");
         commentList = new ArrayList<>();
         unlikedList = new ArrayList<>();
+        unlikedList.add("one");
     }
 
     public String getTo_name() {

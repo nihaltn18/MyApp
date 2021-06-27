@@ -32,7 +32,9 @@
                 android:id="@+id/likeCount"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="0" />
 
             <ImageButton
                 android:id="@+id/like"
@@ -59,7 +61,9 @@
                 android:id="@+id/unlikeCount"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="2" />
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="0" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

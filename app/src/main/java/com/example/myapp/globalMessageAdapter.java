@@ -1,17 +1,22 @@
 package com.example.myapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.L;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -41,6 +46,8 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
         decs = decs+" to --> "+message1.getTo_name();
         holder.description.setText(decs);
         holder.messageContent.setText(message1.getMessage());
+        holder.unLikeCount.setText(String.valueOf(message1.numberOfUnlikes()-1));
+        holder.likeCount.setText(String.valueOf(message1.numberOfLikes()-1));
     }
 
     @Override
@@ -53,7 +60,7 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
         TextView description;
         TextView messageContent;
         ImageButton like;
-        ImageView commentList;
+        ImageButton commentList;
         ImageButton unlike;
         TextView likeCount;
         TextView unLikeCount;
@@ -82,40 +89,42 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
         public void liked()
         {
             int pos = this.getAbsoluteAdapterPosition();
-            String curruserid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-            if(list.get(pos).likedList.contains(curruserid))
+            String curruser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            String messageId = list.get(pos).getMessage_id();
+            String toId = list.get(pos).getTo_id();
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("global").child(messageId);
+            message message1 = list.get(pos);
+            if(message1.likedList.contains(curruser))
             {
-                //remove previous like
-                //and if the unliked list also contains the user remove it
-                //update like count
-                list.get(pos).remove_from_likedList(curruserid);
+                message1.remove_from_likedList(curruser);
             }
             else
             {
-                //add user to the liked list
-                //update like count
-                list.get(pos).Add_to_likedList(curruserid);
-                list.get(pos).remove_from_unlikedList(curruserid);
+                message1.remove_from_unlikedList(curruser);
+                message1.Add_to_likedList(curruser);
             }
+
+            reference.setValue(message1);
+
         }
         public void unliked()
         {
             int pos = this.getAbsoluteAdapterPosition();
-            String curruserid=FirebaseAuth.getInstance().getCurrentUser().getUid();
-            if(list.get(pos).unlikedList.contains(curruserid))
+            String curruser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            String messageId = list.get(pos).getMessage_id();
+            String toId = list.get(pos).getTo_id();
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("global").child(messageId);
+            message message1 = list.get(pos);
+            if(message1.unlikedList.contains(curruser))
             {
-                //remove previous unlike
-                //and if the liked list also contains the user remove it
-                //update unlike count
-                list.get(pos).remove_from_unlikedList(curruserid);
+                message1.remove_from_unlikedList(curruser);
             }
             else
             {
-                //add user to the unliked list
-                //update unlike count
-                list.get(pos).Add_to_unlikedList(curruserid);
-                list.get(pos).remove_from_likedList(curruserid);
+                message1.remove_from_likedList(curruser);
+                message1.Add_to_unlikedList(curruser);
             }
+            reference.setValue(message1);
         }
     }
 }
