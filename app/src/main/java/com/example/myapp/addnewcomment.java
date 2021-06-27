@@ -53,7 +53,7 @@ public class addnewcomment extends AppCompatActivity {
                 message1.addComment(FirebaseAuth.getInstance().getCurrentUser().getDisplayName(),editText.getText().toString());
                 reference.setValue(message1);
                 Toast.makeText(addnewcomment.this,"successfully commented",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(addnewcomment.this,Comments_Page.class));
+                startActivity(new Intent(addnewcomment.this,global.class));
             }
 
             @Override
