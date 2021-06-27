@@ -1,6 +1,7 @@
 package com.example.myapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,7 +86,14 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
                     unliked();
                 }
             });
+            commentList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToCommentPage();
+                }
+            });
         }
+
         public void liked()
         {
             int pos = this.getAbsoluteAdapterPosition();
@@ -125,6 +133,11 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
                 message1.Add_to_unlikedList(curruser);
             }
             reference.setValue(message1);
+        }
+        private void goToCommentPage() {
+            Intent intent = new Intent(context,Comments_Page.class);
+            intent.putExtra("messageId",list.get(this.getAbsoluteAdapterPosition()).getMessage_id());
+            context.startActivity(intent);
         }
     }
 }
