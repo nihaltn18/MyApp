@@ -1,8 +1,8 @@
 package com.example.myapp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-
-public class message {
+public class message{
     String message;
     String from_id;
     String from_name;
@@ -72,7 +72,7 @@ public class message {
         likedList = new ArrayList<>();
         likedList.add("one");
         commentList = new ArrayList<>();
-        commentList.add(new Comments("from","content"));
+        commentList.add(new Comments(from_name,message));
         unlikedList = new ArrayList<>();
         unlikedList.add("one");
     }

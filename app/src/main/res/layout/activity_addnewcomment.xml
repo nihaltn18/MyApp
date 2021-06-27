@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f07167"
     tools:context=".addnewcomment">
 
     <Button
@@ -20,9 +21,11 @@
         android:id="@+id/commentContent"
         android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:layout_margin="1dp"
+        android:background="@drawable/edittextbg"
         android:ems="10"
+        android:hint="your comment"
         android:inputType="textMultiLine"
-        android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/submitComment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

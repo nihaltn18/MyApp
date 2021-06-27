@@ -19,43 +19,45 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Comment;
-
-import java.util.List;
 
 public class addnewcomment extends AppCompatActivity {
 
     EditText editText;
     Button button;
     String messageId;
+    message message1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addnewcomment);
         editText = findViewById(R.id.commentContent);
         button = findViewById(R.id.submitComment);
-        messageId = getIntent().getStringExtra("messageid");
+        messageId = getIntent().getStringExtra("messageId");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addcomment();
+                if(editText.getText().toString().equals(""))
+                    Toast.makeText(addnewcomment.this,"please enter fome comment...",Toast.LENGTH_LONG).show();
+                else
+                    addcomment();
             }
         });
     }
 
     private void addcomment() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("global").child(messageId);
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                message message1 = snapshot.getValue(message.class);
-                message1.addComment(message1.from_name,editText.getText().toString());
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                message1 = snapshot.getValue(message.class);
+                message1.addComment(FirebaseAuth.getInstance().getCurrentUser().getDisplayName(),editText.getText().toString());
                 reference.setValue(message1);
-                Toast.makeText(addnewcomment.this,"successfukky commented",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(addnewcomment.this,global.class));
+                Toast.makeText(addnewcomment.this,"successfully commented",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(addnewcomment.this,Comments_Page.class));
             }
+
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
             }
         });

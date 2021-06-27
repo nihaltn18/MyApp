@@ -30,6 +30,7 @@ public class Comments_Page extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager;
     String messageId;
     List<Comments> list;
+    message message1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class Comments_Page extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                message message1=snapshot.getValue(message.class);
+                message1=snapshot.getValue(message.class);
                 list = message1.getCommentList();
                 CommentAdapter adapter = new CommentAdapter(list,Comments_Page.this);
                 recyclerView.setAdapter(adapter);
@@ -55,6 +56,14 @@ public class Comments_Page extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
+            }
+        });
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Comments_Page.this,addnewcomment.class);
+                intent.putExtra("messageId",messageId);
+                startActivity(intent);
             }
         });
     }

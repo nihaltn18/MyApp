@@ -15,7 +15,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:background="#673AB7"
+        android:background="#BFAAE4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,10 @@
         android:id="@+id/addComment"
         android:layout_width="75dp"
         android:layout_height="38dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/roundbutton"
         app:layout_constraintBottom_toBottomOf="@+id/recyclercomment"
         app:layout_constraintEnd_toEndOf="@+id/recyclercomment"
-        app:srcCompat="@drawable/button_bg" />
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
