@@ -11,16 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:background="#e07a5f"
+        android:padding="5dp"
         android:text="TextView"
         android:textColor="#3d405b"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="119dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="647dp"
         android:background="#f2cc8f"
+        android:padding="5dp"
         android:text="TextView"
         android:textColor="#3d405b"
         app:layout_constraintBottom_toBottomOf="parent"
