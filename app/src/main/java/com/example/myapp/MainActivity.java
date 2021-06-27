@@ -119,18 +119,18 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             //user created.......
-            if(user.getEmail().contains("bmsce.ac.in"))
+//            if(user.getEmail().contains("bmsce.ac.in"))
             startActivity(new Intent(MainActivity.this,phone_verifiation.class));
-            else
-            {
-                Toast.makeText(MainActivity.this, "please use college Email id......",
-                        Toast.LENGTH_SHORT).show();
-                FirebaseAuth.getInstance().signOut();
-                GoogleSignIn.getClient(
-                        MainActivity.this,
-                        new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()
-                ).signOut();
-            }
+//            else
+//            {
+//                Toast.makeText(MainActivity.this, "please use college Email id......",
+//                        Toast.LENGTH_SHORT).show();
+//                FirebaseAuth.getInstance().signOut();
+//                GoogleSignIn.getClient(
+//                        MainActivity.this,
+//                        new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()
+//                ).signOut();
+//            }
         }
     }
 }

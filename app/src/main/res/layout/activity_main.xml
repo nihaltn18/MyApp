@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
+        android:gravity="center"
         android:padding="3dp"
         android:text="@string/introstring"
         android:textColor="#673AB7"
@@ -28,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
+        android:gravity="center"
         android:text="@string/app_name"
         android:textColor="#4B00CF"
         android:textSize="50sp"
@@ -41,11 +43,14 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         app:rb_color="#f15bb5"
         app:rb_duration="5000"
         app:rb_radius="35dp"
         app:rb_rippleAmount="20"
-        app:rb_scale="6">
+        app:rb_scale="6"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="5dp">
 
         <ImageView
             android:id="@+id/centerImage"
