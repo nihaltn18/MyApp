@@ -1,5 +1,7 @@
 package com.example.myapp;
 
+import java.util.ArrayList;
+
 public class message {
     String message;
     String from_id;
@@ -8,6 +10,9 @@ public class message {
     boolean Private;
     boolean anonymous;
     String to_name;
+    ArrayList<String> likedList;
+    ArrayList<comments> commentList;
+    ArrayList<String> unlikedList;
 
     public String getFrom_name() {
         return from_name;
@@ -17,7 +22,31 @@ public class message {
         this.from_name = from_name;
     }
 
-    public message(String message, String from_id, String to_id, boolean aPrivate, boolean anonymous, String from_name,String to_name) {
+    public ArrayList<String> getLikedList() {
+        return likedList;
+    }
+
+    public void setLikedList(ArrayList<String> likedList) {
+        this.likedList = likedList;
+    }
+
+    public ArrayList<comments> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(ArrayList<comments> commentList) {
+        this.commentList = commentList;
+    }
+
+    public ArrayList<String> getUnlikedList() {
+        return unlikedList;
+    }
+
+    public void setUnlikedList(ArrayList<String> unlikedList) {
+        this.unlikedList = unlikedList;
+    }
+
+    public message(String message, String from_id, String to_id, boolean aPrivate, boolean anonymous, String from_name, String to_name) {
         this.message = message;
         this.to_name = to_name;
         this.from_name=from_name;
@@ -25,6 +54,9 @@ public class message {
         this.to_id = to_id;
         Private = aPrivate;
         this.anonymous = anonymous;
+        likedList = new ArrayList<>();
+        commentList = new ArrayList<>();
+        unlikedList = new ArrayList<>();
     }
 
     public String getTo_name() {
@@ -76,5 +108,41 @@ public class message {
 
     public void setAnonymous(boolean anonymous) {
         this.anonymous = anonymous;
+    }
+    public void Add_to_likedList(String id)
+    {
+        likedList.add(id);
+    }
+    public void Add_to_unlikedList(String id)
+    {
+        unlikedList.add(id);
+    }
+    public void remove_from_likedList(String id)
+    {
+        likedList.remove(new String(id));
+    }
+    public void remove_from_unlikedList(String id)
+    {
+        unlikedList.remove(new String(id));
+    }
+    public boolean inLikedList(String id)
+    {
+        if(likedList.contains(id))
+            return true;
+        return false;
+    }
+    public boolean inUnlikedList(String id)
+    {
+        if(unlikedList.contains(id))
+            return true;
+        return false;
+    }
+    public int numberOfLikes()
+    {
+        return likedList.size();
+    }
+    public int numberOfUnlikes()
+    {
+        return unlikedList.size();
     }
 }
