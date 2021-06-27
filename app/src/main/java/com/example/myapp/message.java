@@ -11,7 +11,7 @@ public class message {
     boolean anonymous;
     String to_name;
     ArrayList<String> likedList;
-    ArrayList<comments> commentList;
+    ArrayList<Comments> commentList;
     ArrayList<String> unlikedList;
 
     public String getFrom_name() {
@@ -30,11 +30,11 @@ public class message {
         this.likedList = likedList;
     }
 
-    public ArrayList<comments> getCommentList() {
+    public ArrayList<Comments> getCommentList() {
         return commentList;
     }
 
-    public void setCommentList(ArrayList<comments> commentList) {
+    public void setCommentList(ArrayList<Comments> commentList) {
         this.commentList = commentList;
     }
 
@@ -144,5 +144,10 @@ public class message {
     public int numberOfUnlikes()
     {
         return unlikedList.size();
+    }
+    public void addComment(boolean anonymous, String from, String to, String fromId, String toId, String commentContent)
+    {
+        Comments comments = new Comments(anonymous,from,to,fromId,toId,commentContent);
+        commentList.add(comments);
     }
 }
