@@ -56,12 +56,14 @@ public class sendmessage extends AppCompatActivity {
         {
             DatabaseReference database = FirebaseDatabase.getInstance().getReference(id);
             String id1 = database.push().getKey();
+            message1.setMessage_id(id1);
             database.child(id1).setValue(message1);
         }
         else
         {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("global");
             String id1 = databaseReference.push().getKey();
+            message1.setMessage_id(id1);
             databaseReference.child(id1).setValue(message1);
         }
         Toast.makeText(sendmessage.this,"successfully sent the message",Toast.LENGTH_LONG).show();

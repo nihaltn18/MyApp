@@ -10,6 +10,16 @@ public class message {
     boolean Private;
     boolean anonymous;
     String to_name;
+    String message_id;
+
+    public String getMessage_id() {
+        return message_id;
+    }
+
+    public void setMessage_id(String message_id) {
+        this.message_id = message_id;
+    }
+
     ArrayList<String> likedList;
     ArrayList<Comments> commentList;
     ArrayList<String> unlikedList;
@@ -46,6 +56,10 @@ public class message {
         this.unlikedList = unlikedList;
     }
 
+    public message(String message) {
+        this.message = message;
+    }
+
     public message(String message, String from_id, String to_id, boolean aPrivate, boolean anonymous, String from_name, String to_name) {
         this.message = message;
         this.to_name = to_name;
@@ -53,6 +67,7 @@ public class message {
         this.from_id = from_id;
         this.to_id = to_id;
         Private = aPrivate;
+        String messageId;
         this.anonymous = anonymous;
         likedList = new ArrayList<>();
         commentList = new ArrayList<>();

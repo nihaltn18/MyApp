@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.List;
 
 public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdapter.ViewHolder> {
@@ -64,6 +66,56 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
             unlike=itemView.findViewById(R.id.unlike);
             likeCount = itemView.findViewById(R.id.likeCount);
             unLikeCount = itemView.findViewById(R.id.unlikeCount);
+            like.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    liked();
+                }
+            });
+            unlike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    unliked();
+                }
+            });
+        }
+        public void liked()
+        {
+            int pos = this.getAbsoluteAdapterPosition();
+            String curruserid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+            if(list.get(pos).likedList.contains(curruserid))
+            {
+                //remove previous like
+                //and if the unliked list also contains the user remove it
+                //update like count
+                list.get(pos).remove_from_likedList(curruserid);
+            }
+            else
+            {
+                //add user to the liked list
+                //update like count
+                list.get(pos).Add_to_likedList(curruserid);
+                list.get(pos).remove_from_unlikedList(curruserid);
+            }
+        }
+        public void unliked()
+        {
+            int pos = this.getAbsoluteAdapterPosition();
+            String curruserid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+            if(list.get(pos).unlikedList.contains(curruserid))
+            {
+                //remove previous unlike
+                //and if the liked list also contains the user remove it
+                //update unlike count
+                list.get(pos).remove_from_unlikedList(curruserid);
+            }
+            else
+            {
+                //add user to the unliked list
+                //update unlike count
+                list.get(pos).Add_to_unlikedList(curruserid);
+                list.get(pos).remove_from_likedList(curruserid);
+            }
         }
     }
 }
