@@ -150,4 +150,8 @@ public class message {
         Comments comments = new Comments(anonymous,from,to,fromId,toId,commentContent);
         commentList.add(comments);
     }
+    public int numberOfComments()
+    {
+        return commentList.size();
+    }
 }
