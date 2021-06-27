@@ -2,13 +2,16 @@ package com.example.myapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.airbnb.lottie.L;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,35 +27,34 @@ public class Comments_Page extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ImageButton imageButton;
+    LinearLayoutManager linearLayoutManager;
+    String messageId;
+    List<Comments> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments_page);
-        String messageId = getIntent().getStringExtra("messageId");
         recyclerView = findViewById(R.id.recyclercomment);
+        imageButton = findViewById(R.id.addComment);
+        linearLayoutManager = new LinearLayoutManager(Comments_Page.this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        list =new  ArrayList<>();
+        messageId = getIntent().getStringExtra("messageId");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("global").child(messageId);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                message message1 = snapshot.getValue(message.class);
-                List<Comments> commentsList = message1.getCommentList();
-                CommentAdapter adapter = new CommentAdapter(commentsList,Comments_Page.this);
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                message message1=snapshot.getValue(message.class);
+                list = message1.getCommentList();
+                CommentAdapter adapter = new CommentAdapter(list,Comments_Page.this);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
-            }
-        });
-        imageButton = findViewById(R.id.addComment);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Comments_Page.this,addnewcomment.class);
-                intent.putExtra("messageid",messageId);
-                startActivity(intent);
             }
         });
     }

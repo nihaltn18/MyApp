@@ -72,7 +72,7 @@ public class message {
         likedList = new ArrayList<>();
         likedList.add("one");
         commentList = new ArrayList<>();
-        commentList.add(new Comments(false,"aaa","bbb","ccc","ddd","ddddd"));
+        commentList.add(new Comments("from","content"));
         unlikedList = new ArrayList<>();
         unlikedList.add("one");
     }
@@ -163,10 +163,11 @@ public class message {
     {
         return unlikedList.size();
     }
-    public void addComment(boolean anonymous, String from, String to, String fromId, String toId, String commentContent)
+    public void addComment(String from,String commentContent)
     {
-        Comments comments = new Comments(anonymous,from,to,fromId,toId,commentContent);
+        Comments comments = new Comments(from,commentContent);
         commentList.add(comments);
+        return;
     }
     public int numberOfComments()
     {
