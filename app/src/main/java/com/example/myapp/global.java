@@ -22,7 +22,7 @@ public class global extends AppCompatActivity {
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
     List<message> list;
-    messageAdapter adapter;
+    globalMessageAdapter adapter;
     SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class global extends AppCompatActivity {
                     message message1 = message2.getValue(message.class);
                     list.add(message1);
                 }
-                adapter = new messageAdapter(list,global.this);
+                adapter = new globalMessageAdapter(list,global.this);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
