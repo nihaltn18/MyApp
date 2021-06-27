@@ -17,6 +17,9 @@ public class Comments {
         this.commentContent = commentContent;
     }
 
+    public Comments() {
+    }
+
     @Override
     public String toString() {
         return "Comments{" +

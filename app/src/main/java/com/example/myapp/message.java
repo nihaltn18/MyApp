@@ -72,6 +72,7 @@ public class message {
         likedList = new ArrayList<>();
         likedList.add("one");
         commentList = new ArrayList<>();
+        commentList.add(new Comments(false,"aaa","bbb","ccc","ddd","ddddd"));
         unlikedList = new ArrayList<>();
         unlikedList.add("one");
     }
