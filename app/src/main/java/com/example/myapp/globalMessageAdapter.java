@@ -53,6 +53,8 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
         ImageButton like;
         ImageView commentList;
         ImageButton unlike;
+        TextView likeCount;
+        TextView unLikeCount;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             description=itemView.findViewById(R.id.desc);
@@ -60,6 +62,8 @@ public class globalMessageAdapter extends RecyclerView.Adapter<globalMessageAdap
             like=itemView.findViewById(R.id.like);
             commentList=itemView.findViewById(R.id.comment);
             unlike=itemView.findViewById(R.id.unlike);
+            likeCount = itemView.findViewById(R.id.likeCount);
+            unLikeCount = itemView.findViewById(R.id.unlikeCount);
         }
     }
 }
