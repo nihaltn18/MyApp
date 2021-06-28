@@ -72,7 +72,7 @@ public class message{
         likedList = new ArrayList<>();
         likedList.add("one");
         commentList = new ArrayList<>();
-        commentList.add(new Comments(from_name,message));
+        commentList.add(new Comments("MESSAGE",message));
         unlikedList = new ArrayList<>();
         unlikedList.add("one");
     }
